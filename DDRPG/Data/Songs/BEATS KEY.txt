@@ -1,0 +1,36 @@
+The following is the syntax and formatting of a beats file. Each file must be in a folder of its own in the Songs
+directory, accompanied by a meta.smta file. The meta file formatting can be found in the Songs folder aswell.
+
+ = Rest (No number, blank line. Note that any character that is invalid will be read as this)
+
+8 = up
+2 = down
+4 = left
+6 = right
+
+7 = Up + Left
+9 = Up + Right
+1 = Down + Left
+3 = Down + Right
+5 = Up + Down
+0 = Left + Right
+
+Tip: Each beat ID is relative to its location on a standard number pad.
+8 is up because it is the top number on the pad, and 7 is up + right because it is the top right number.
+5 and 0 are U+D and L+R due to limitations of the organization.
+
+
+For holdables, Specify the amount of beats the hold lasts (Not yet implemented)
+
+EX:
+8
+8
+2
+2
+4
+6
+4
+6
+
+Translates to:
+Up up down down left right left right, in order.

@@ -7,15 +7,28 @@ using Duality.Resources;
 
 namespace DanceTest
 {
-    public class GhostArrow : Component, ICmpUpdatable
+    public class GhostArrow : Component, ICmpUpdatable, ICmpInitializable
     {
+        public bool active;
+
+        public void OnInit(InitContext context)
+        {
+            active = true;
+        }
+
+        public void OnShutdown(ShutdownContext context)
+        {
+            
+        }
+
         public void OnUpdate()
         {
-            GameObj.Transform.MoveBy(Vector2.UnitY * 5);
+            GameObj.Transform.MoveBy(Vector2.UnitY * 10 * Time.TimeMult);
 
-            if(GameObj.Transform.Pos.Y >500)
+            if(GameObj.Transform.Pos.Y >550)
             {
-                Scene.Current.FindGameObject<MissText>(false).GetComponent<MissText>().Activate();
+                if(active)
+                    Scene.Current.FindGameObject<MissText>(false).GetComponent<MissText>().Activate();
                 GameObj.DisposeLater();
             }
         }

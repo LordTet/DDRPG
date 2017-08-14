@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BeatManager.cs" />
+    <Compile Include="DoubleManager.cs" />
     <Compile Include="TitleCursor.cs" />
     <Compile Include="CorePlugin.cs" />
     <Compile Include="GhostArrow.cs" />
@@ -67,6 +68,9 @@
     <Compile Include="PlayerArrowLEFT.cs" />
     <Compile Include="PlayerArrowUP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Songs\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <PropertyGroup>

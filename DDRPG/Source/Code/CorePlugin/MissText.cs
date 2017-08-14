@@ -9,11 +9,11 @@ namespace DanceTest
     public class MissText : Component, ICmpInitializable, ICmpUpdatable
     {
         SpriteRenderer x;
-        float timerd = 0;
+        float timerd = float.PositiveInfinity;
         public void Activate()
         {
             x.Active = true;
-            timerd = 60;
+            timerd = 0;
         }
 
         public void OnInit(InitContext context)
@@ -29,13 +29,15 @@ namespace DanceTest
 
         public void OnUpdate()
         {
-            if (timerd > 0)
+            if (!float.IsPositiveInfinity(timerd) && timerd < (1 / Time.TimeMult) * 60)
             {
-                timerd--;
-                if (timerd <= 0)
-                {
-                    x.Active = false;
-                }
+                timerd++;
+                //Log.Game.Write("lul");
+            }
+            else
+            {
+                x.Active = false;
+                timerd = float.PositiveInfinity;
             }
         }
     }
